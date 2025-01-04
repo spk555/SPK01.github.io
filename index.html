@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPK</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            height: 100%;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+        header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00B0FF;
+        }
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #00B0FF;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        header nav a:hover {
+            color: #00B0FF;
+        }
+        header nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 100px;
+        }
+        section h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #fff;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        section a {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: transparent;
+            border: 2px solid #00B0FF;
+            color: #00B0FF;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        section a:hover {
+            background-color: #00B0FF;
+            color: #fff;
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #contact {
+            background-color: #222;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+        #contact h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #00B0FF;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info a {
+            font-size: 1.2rem;
+            color: #00B0FF;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: #fff;
+        }
+
+        #projects {
+            background-color: #333;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+        #projects h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #00B0FF;
+        }
+        .projects-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .project-card {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        .project-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .project-card h3 {
+            margin-top: 15px;
+            font-size: 1.4rem;
+        }
+        .project-card p {
+            color: #ddd;
+            margin-top: 10px;
+        }
+        .project-card:hover {
+            background-color: #555;
+            box-shadow: 0 4px 20px rgba(0, 176, 255, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .social-links a {
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border-radius: 50%;
+            background-color: #00B0FF;
+            color: #fff;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .social-links a:hover {
+            transform: scale(1.1);
+            background-color: #0066FF;
+        }
+
+        @media (max-width: 768px) {
+            section h1 {
+                font-size: 2rem;
+            }
+            header h1 {
+                font-size: 26px;
+            }
+            header nav {
+                display: none;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                width: 200px;
+                padding: 20px;
+            }
+            header nav a {
+                font-size: 18px;
+                padding: 15px 0;
+                text-align: center;
+            }
+            .hamburger-menu {
+                display: block;
+                cursor: pointer;
+                font-size: 30px;
+            }
+            nav.active {
+                display: flex;
+            }
+            .projects-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .hamburger-menu {
+            display: none;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SPK</h1>
+        <nav>
+            <a href="#about-me">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="indexعر.html">عربية</a>
+            <a href="index2.html">☀️</a>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <section id="about-me">
+        <video autoplay loop muted>
+            <source src="image/videoplayback.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1>Hi, I'm SPK. A <a href="#3d">3D</a> designer and web developer.</h1>
+        <a href="#projects">See My Projects</a>
+    </section>
+
+    <section id="projects">
+        <h1>My 3D Projects</h1>
+
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="image/3d/12K.png" alt="Black Cup Project">
+                <h3>Black Cup</h3>
+                <p>This project is my first 3D creation. A simple black cup designed to experiment with basic shapes.</p>
+            </div>
+
+            <div class="project-card">
+                <img src="image/3d/untitled.png" alt="Self-worked Object">
+                <h3>Self-worked Object</h3>
+                <p>A self-created 3D object, combining organic shapes and realistic textures for practice.</p>
+            </div>
+
+            <div class="project-card">
+                <img src="image/3d/40.png" alt="Abstract 3D Design">
+                <h3>Abstract Design</h3>
+                <p>This abstract piece explores different materials and light effects within a 3D space.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Me</h1>
+        <div class="contact-info">
+            <a href="mailto:spk@example.com">Email</a>
+            <a href="https://www.instagram.com/spk_13_/saved/" target="_blank">Instagram</a>
+            <a href="https://www.youtube.com/@SPk9.3" target="_blank">YouTube</a>
+            <a href="https://discord.gg/xTyUNDuCSP" target="_blank">Discord</a>
+            <a href="https://kick.com/spk-01" target="_blank">Kick</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SPK. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('nav').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
