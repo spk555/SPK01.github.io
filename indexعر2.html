@@ -11,96 +11,55 @@
             padding: 0;
         }
         body, html {
-            font-family: 'Roboto', sans-serif;
-            background-color: #ffffff;
-            color: #333;
             height: 100%;
-            direction: rtl; /* Right-to-left layout */
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #ffffff; /* White background */
+            color: #333; /* Dark text */
         }
         header {
             position: fixed;
+            width: 100%;
             top: 0;
             left: 0;
-            width: 100%;
-            padding: 20px;
-            background-color: #ffffff;
+            padding: 20px 30px;
+            background-color: rgba(255, 255, 255, 0.9); /* Light background for header */
+            z-index: 10;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 10;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lighter shadow */
         }
         header h1 {
-            font-size: 32px;
+            font-size: 30px;
+            color: #007bff; /* Blue text */
             font-weight: bold;
-            color: #333;
         }
         header nav a {
             text-decoration: none;
-            color: #333;
+            color: #333; /* Dark text for links */
+            font-weight: bold;
             margin: 0 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 16px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        header nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #333;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         header nav a:hover {
-            color: #00B0FF;
-        }
-        header nav a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+            background-color: #007bff;
+            color: #fff;
+            transform: scale(1.1);
         }
         section {
             position: relative;
             min-height: 100vh;
+            background: #f8f8f8; /* Light background for the section */
+            color: #333;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             text-align: center;
-            padding-top: 100px;
-            background-color: #ffffff;
-        }
-        section h1 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            color: #333;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        section a {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            background-color: transparent;
-            border: 2px solid #00B0FF;
-            color: #00B0FF;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        section a:hover {
-            background-color: #00B0FF;
-            color: #fff;
-            transform: scale(1.1);
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+            padding: 100px 20px;
         }
         section video {
             position: absolute;
@@ -111,80 +70,84 @@
             object-fit: cover;
             z-index: -1;
         }
-
-        #contact {
-            background-color: #ffffff;
-            padding: 50px 20px;
-            text-align: center;
-            border-radius: 15px;
-            margin-top: 50px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        #contact h1 {
+        section h1 {
+            font-size: 3rem;
             margin-bottom: 30px;
-            font-size: 2.5rem;
-            color: #333;
+            animation: fadeIn 2s ease-in-out;
         }
-        .contact-info {
-            margin-top: 20px;
-        }
-        .contact-info a {
-            font-size: 1.2rem;
-            color: #00B0FF;
+        section a {
             text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
+            color: #007bff;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        .contact-info a:hover {
-            color: #333;
+        section a:hover {
+            background-color: #007bff;
+            color: #fff;
+            transform: scale(1.05);
         }
 
-        #projects {
-            background-color: #ffffff;
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #p-r {
+            background-color: #fff;
             padding: 50px 20px;
             text-align: center;
-            border-radius: 15px;
-            margin-top: 50px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        #projects h1 {
+        #p-r h1 {
             margin-bottom: 30px;
-            font-size: 2.5rem;
-            color: #333;
+            font-size: 2.8rem;
+            color: #007bff;
         }
+
         .projects-container {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
+            flex-wrap: wrap;
+            align-items: center;
         }
+
         .project-card {
-            background-color: #ffffff;
+            width: 300px;
+            background-color: #f9f9f9;
             padding: 20px;
             border-radius: 15px;
-            width: 300px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            border: 1px solid #ccc; /* Light border */
         }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
+            background: linear-gradient(to right, #007bff, #0056b3);
+        }
+
         .project-card img {
             width: 100%;
+            height: auto;
             border-radius: 10px;
         }
-        .project-card h3 {
+
+        .project-description {
             margin-top: 15px;
-            font-size: 1.4rem;
-            color: #333;
-        }
-        .project-card p {
-            color: #555;
-            margin-top: 10px;
-        }
-        .project-card:hover {
-            background-color: #f1f1f1;
-            box-shadow: 0 4px 20px rgba(0, 176, 255, 0.3);
-            transform: translateY(-10px);
+            font-size: 1rem;
+            color: #666; /* Slightly lighter text */
         }
 
         .social-links {
@@ -193,64 +156,180 @@
             gap: 30px;
             margin-top: 40px;
         }
+
         .social-links a {
-            padding: 15px 20px;
+            color: #333;
             font-size: 1.5rem;
             text-decoration: none;
-            border-radius: 50%;
-            background-color: #00B0FF;
-            color: #fff;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        .social-links a:hover {
-            transform: scale(1.1);
-            background-color: #0066FF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
+        .instagram {
+            background: linear-gradient(45deg, #F00, #FF8000, #0000FF);
+        }
+
+        .instagram:hover {
+            background: linear-gradient(45deg, #ff80006c, #0000ff59, rgba(255, 0, 0, 0.384));
+        }
+
+        .youtube {
+            background-color: #FF0000;
+        }
+
+        .youtube:hover {
+            background-color: #FF4C00;
+        }
+
+        .kick {
+            background-color: #00FF00;
+        }
+
+        .kick:hover {
+            background-color: #029402;
+        }
+
+        /* Discord Section */
+        #dis {
+            margin-top: 50px;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .discord-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .discord-card {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border-radius: 15px;
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .discord-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 25px rgba(0, 123, 255, 0.7);
+        }
+
+        .discord-card a {
+            background: #fff;
+            color: #007bff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .discord-card a:hover {
+            background-color: #007bff;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .discord-image {
+            width: 300px;
+            height: auto;
+            box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .discord-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 25px rgba(0, 123, 255, 0.7);
+        }
+
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            section h1 {
-                font-size: 2rem;
-            }
             header h1 {
-                font-size: 26px;
+                font-size: 24px;
             }
-            header nav {
-                display: none;
-                position: absolute;
-                top: 80px;
-                right: 0;
-                background-color: rgba(255, 255, 255, 0.9);
-                flex-direction: column;
-                width: 200px;
-                padding: 20px;
-            }
+
             header nav a {
-                font-size: 18px;
-                padding: 15px 0;
-                text-align: center;
+                font-size: 14px;
+                margin: 0 10px;
             }
-            .hamburger-menu {
-                display: block;
-                cursor: pointer;
-                font-size: 30px;
+
+            section h1 {
+                font-size: 2.5rem;
             }
-            nav.active {
-                display: flex;
+
+            section a {
+                font-size: 1rem;
+                padding: 10px 20px;
             }
+
             .projects-container {
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
-            .contact-info a {
+
+            .project-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .social-links a {
+                font-size: 1.2rem;
+                padding: 8px 16px;
+            }
+
+            .discord-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .discord-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .discord-image {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            /* Navbar menu toggle */
+            .menu-toggle {
                 display: block;
-                margin: 10px 0;
+                font-size: 30px;
+                cursor: pointer;
+                color: #333;
             }
-        }
-        .hamburger-menu {
-            display: none;
-            font-size: 30px;
-            color: #333;
-            cursor: pointer;
+
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.9);
+                z-index: 999;
+            }
+
+            nav .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid #007bff;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav .nav-links.active {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -258,13 +337,16 @@
     <header>
         <h1>SPK</h1>
         <nav>
-            <a href="#about-me">عنّي</a>
-            <a href="#projects">المشاريع</a>
-            <a href="#contact">اتصل بي</a>
-            <a href="index2.html">English</a>
-            <a href="indexعر.html">🌙</a>
+            <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+            <div class="nav-links">
+                <a href="#about-me">عنّي</a>
+                <a href="#p-r">مشاريعنا</a>
+                <a href="#cn">اتّصل بنا</a>
+                <a href="#dis">خادم Discord</a>
+                <a href="index2.html">English</a>
+                <a href="indexعر.html">☀️</a>
+            </div>
         </nav>
-        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
     </header>
 
     <section id="about-me">
@@ -272,42 +354,48 @@
             <source src="image/videoplayback.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <h1>مرحبًا، أنا SPK. مصمم <a href="#3d">3D</a> ومطور ويب.</h1>
-        <a href="#projects">شاهد مشاريعي</a>
+        <h1>اسمي SPK. أنا مصمم ثلاثي الأبعاد ومطور ويب.</h1>
+        <a href="#p-r">شاهد مشاريعنا</a>
     </section>
 
-    <section id="projects">
-        <h1>مشاريعي في تصميم 3D</h1>
+    <section id="p-r">
+        <h1>مشاريع ثلاثية الأبعاد</h1>
         <div class="projects-container">
             <div class="project-card">
-                <img src="image/3d/12K.png" alt="مشروع الكوب الأسود">
-                <h3>الكوب الأسود</h3>
-                <p>هذا المشروع هو أول إبداع لي في تصميم 3D. كوب أسود بسيط تم تصميمه للتجربة مع الأشكال الأساسية.</p>
+                <img src="image/3d/12K.png" alt="3D project showcasing a black cup design" />
+                <h3>المشروع 1: الكوب الأسود</h3>
+                <p class="project-description">هذا هو مشروعي الأول في التصميم ثلاثي الأبعاد، كوب أسود تم إنشاؤه كتمرين للمبتدئين في التصميم ثلاثي الأبعاد.</p>
             </div>
             <div class="project-card">
-                <img src="image/3d/untitled.png" alt="كائن تم العمل عليه ذاتيًا">
-                <h3>كائن تم العمل عليه ذاتيًا</h3>
-                <p>كائن ثلاثي الأبعاد تم إنشاؤه ذاتيًا، يجمع بين الأشكال العضوية والنسيج الواقعي للتدريب.</p>
-            </div>
-            <div class="project-card">
-                <img src="image/3d/40.png" alt="تصميم 3D تجريدي">
-                <h3>تصميم تجريدي</h3>
-                <p>تصميم 3D تجريدي تم إنشاؤه باستخدام الأشكال الهندسية وتأثيرات الإضاءة المعقدة.</p>
+                <img src="image/3d/untitled.png" alt="3D project showcasing a self-worked object" />
+                <h3>المشروع 2: الكائن المُعَمَل عليه</h3>
+                <p class="project-description">تم هذا المشروع بالكامل من قبلي للتجربة باستخدام تقنيات النمذجة المختلفة.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h1>اتصل بي</h1>
-        <div class="contact-info">
-            <p>إذا كنت ترغب في التواصل، يمكنك الوصول إليّ من خلال أي من المنصات التالية:</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com" target="_blank">لينكدإن</a>
-                <a href="https://www.github.com" target="_blank">جيت هاب</a>
-                <a href="https://www.twitter.com" target="_blank">تويتر</a>
-                <a href="mailto:example@example.com">البريد الإلكتروني</a>
+    <section id="cn">
+        <h4>تواصل معي:</h4>
+        <div class="social-links">
+            <a href="https://www.instagram.com/spk_13_/saved/" class="instagram">Instagram</a>
+            <a href="https://www.youtube.com/@SPk9.3" class="youtube">YouTube</a>
+            <a href="https://kick.com/spk-01" class="kick">Kick</a>
+        </div>
+    </section>
+
+    <section id="dis">
+        <h1>انضم إلى خادم Discord الخاص بي</h1>
+        <div class="discord-container">
+            <div class="discord-card">
+                <a href="https://discord.gg/xTyUNDuCSP" target="_blank">انضم إلى خادم Discord لدينا</a>
             </div>
         </div>
     </section>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

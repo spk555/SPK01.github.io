@@ -11,93 +11,55 @@
             padding: 0;
         }
         body, html {
-            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
             background-color: #121212;
             color: #fff;
-            height: 100%;
         }
         header {
             position: fixed;
+            width: 100%;
             top: 0;
             left: 0;
-            width: 100%;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 30px;
+            background-color: rgba(0, 0, 0, 0.7); 
+            z-index: 10;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
         }
         header h1 {
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 30px;
             color: #00B0FF;
+            font-weight: bold;
         }
         header nav a {
             text-decoration: none;
             color: #fff;
+            font-weight: bold;
             margin: 0 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 16px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        header nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #00B0FF;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         header nav a:hover {
-            color: #00B0FF;
-        }
-        header nav a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-        section {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            padding-top: 100px;
-        }
-        section h1 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            color: #fff;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        section a {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            background-color: transparent;
-            border: 2px solid #00B0FF;
-            color: #00B0FF;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        section a:hover {
             background-color: #00B0FF;
             color: #fff;
             transform: scale(1.1);
         }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+        section {
+            position: relative;
+            min-height: 100vh;
+            background: #1A1A1A;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
         }
         section video {
             position: absolute;
@@ -108,76 +70,96 @@
             object-fit: cover;
             z-index: -1;
         }
+        section h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        section a {
+            text-decoration: none;
+            color: #00B0FF;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        section a:hover {
+            background-color: #00B0FF;
+            color: #fff;
+            transform: scale(1.05);
+        }
 
-        #contact {
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #p-r {
             background-color: #222;
             padding: 50px 20px;
             text-align: center;
-            border-radius: 15px;
-            margin-top: 50px;
         }
-        #contact h1 {
+        #p-r h1 {
             margin-bottom: 30px;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #00B0FF;
-        }
-        .contact-info {
-            margin-top: 20px;
-        }
-        .contact-info a {
-            font-size: 1.2rem;
-            color: #00B0FF;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        .contact-info a:hover {
-            color: #fff;
         }
 
-        #projects {
-            background-color: #333;
-            padding: 50px 20px;
-            text-align: center;
-            border-radius: 15px;
-            margin-top: 50px;
-        }
-        #projects h1 {
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            color: #00B0FF;
-        }
         .projects-container {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
+            flex-wrap: wrap;
+            align-items: center;
         }
+
         .project-card {
-            background-color: #444;
+            width: 300px;
+            background-color: #333;
             padding: 20px;
             border-radius: 15px;
-            width: 300px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             text-align: center;
+            cursor: pointer;
         }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 176, 255, 0.5);
+            background: linear-gradient(to right, #00B0FF, #0066FF);
+        }
+
         .project-card img {
             width: 100%;
+            height: auto;
             border-radius: 10px;
         }
-        .project-card h3 {
+
+        .project-description {
             margin-top: 15px;
-            font-size: 1.4rem;
-        }
-        .project-card p {
+            font-size: 1rem;
             color: #ddd;
-            margin-top: 10px;
         }
-        .project-card:hover {
-            background-color: #555;
-            box-shadow: 0 4px 20px rgba(0, 176, 255, 0.3);
-            transform: translateY(-10px);
+
+        .centered-project {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .centered-project img {
+            width: 100%;
+            height: auto;
         }
 
         .social-links {
@@ -186,74 +168,198 @@
             gap: 30px;
             margin-top: 40px;
         }
+
         .social-links a {
-            padding: 15px 20px;
+            color: #fff;
             font-size: 1.5rem;
             text-decoration: none;
-            border-radius: 50%;
-            background-color: #00B0FF;
-            color: #fff;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        .social-links a:hover {
-            transform: scale(1.1);
-            background-color: #0066FF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
+        .instagram {
+            background: linear-gradient(45deg, #F00, #FF8000, #0000FF);
+        }
+
+        .instagram:hover {
+            background: linear-gradient(45deg, #ff80006c, #0000ff59, rgba(255, 0, 0, 0.384));
+        }
+
+        .youtube {
+            background-color: #FF0000;
+        }
+
+        .youtube:hover {
+            background-color: #FF4C00;
+        }
+
+        .kick {
+            background-color: #00FF00;
+        }
+
+        .kick:hover {
+            background-color: #029402;
+        }
+
+        /* Discord Section */
+        #dis {
+            margin-top: 50px;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .discord-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .discord-card {
+            background: linear-gradient(45deg, #00B0FF, #0066FF);
+            border-radius: 15px;
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .discord-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 25px rgba(0, 176, 255, 0.7);
+        }
+
+        .discord-card a {
+            background: #fff;
+            color: #00B0FF;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .discord-card a:hover {
+            background-color: #00B0FF;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .discord-image {
+            width: 300px;
+            height: auto;
+            box-shadow: 0 4px 20px rgba(0, 176, 255, 0.5);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .discord-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 25px rgba(0, 176, 255, 0.7);
+        }
+
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            section h1 {
-                font-size: 2rem;
-            }
             header h1 {
-                font-size: 26px;
+                font-size: 24px;
             }
-            header nav {
-                display: none;
-                position: absolute;
-                top: 80px;
-                right: 0;
-                background-color: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                width: 200px;
-                padding: 20px;
-            }
+
             header nav a {
-                font-size: 18px;
-                padding: 15px 0;
-                text-align: center;
+                font-size: 14px;
+                margin: 0 10px;
             }
-            .hamburger-menu {
-                display: block;
-                cursor: pointer;
-                font-size: 30px;
+
+            section h1 {
+                font-size: 2.5rem;
             }
-            nav.active {
-                display: flex;
+
+            section a {
+                font-size: 1rem;
+                padding: 10px 20px;
             }
+
             .projects-container {
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
+            }
+
+            .project-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .social-links a {
+                font-size: 1.2rem;
+                padding: 8px 16px;
+            }
+
+            .discord-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .discord-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .discord-image {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            /* Navbar menu toggle */
+            .menu-toggle {
+                display: block;
+                font-size: 30px;
+                cursor: pointer;
+                color: #fff;
+            }
+
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 999;
+            }
+
+            nav .nav-links a {
+                padding: 15px;
+                border-bottom: 1px solid #00B0FF;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav .nav-links.active {
+                display: flex;
             }
         }
-        .hamburger-menu {
-            display: none;
-            font-size: 30px;
-            color: #fff;
-            cursor: pointer;
-        }
+
     </style>
 </head>
 <body>
     <header>
         <h1>SPK</h1>
         <nav>
-            <a href="#about-me">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            <a href="indexعر.html">عربية</a>
-            <a href="index2.html">☀️</a>
+            <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+            <div class="nav-links">
+                <a href="#about-me">About Me</a>
+                <a href="#p-r">Our Projects</a>
+                <a href="#cn">Contact</a>
+                <a href="#dis">Discord Server</a>
+                <a href="indexعر.html">عربية</a>
+                <a href="index2.html">☀️</a>
+            </div>
         </nav>
-        <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
     </header>
 
     <section id="about-me">
@@ -261,52 +367,58 @@
             <source src="image/videoplayback.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <h1>Hi, I'm SPK. A <a href="#3d">3D</a> designer and web developer.</h1>
-        <a href="#projects">See My Projects</a>
+        <h1>My name is SPK. I'm a <a href="#3d">3D</a> designer and web developer.</h1>
+        <a href="#p-r">View Our Projects</a>
     </section>
 
-    <section id="projects">
-        <h1>My 3D Projects</h1>
-
-        <div class="projects-container">
+    <section id="p-r">
+        <h1>3D Projects</h1>
+        <div class="centered-project">
             <div class="project-card">
-                <img src="image/3d/12K.png" alt="Black Cup Project">
-                <h3>Black Cup</h3>
-                <p>This project is my first 3D creation. A simple black cup designed to experiment with basic shapes.</p>
+                <img src="image/3d/12K.png" alt="3D project showcasing a black cup design" />
+                <h3>Project 1: Black Cup</h3>
+                <p class="project-description">This is my first 3D project, a black cup created as a beginner's exercise in 3D design.</p>
+            </div>
+        </div>
+
+        <div class="projects-container" id="3d">
+            <div class="project-card">
+                <img src="image/3d/untitled.png" alt="3D project showcasing a self-worked object" />
+                <h3>Project 2: Self-worked Object</h3>
+                <p class="project-description">This project was done completely by me to experiment with different modeling techniques.</p>
             </div>
 
             <div class="project-card">
-                <img src="image/3d/untitled.png" alt="Self-worked Object">
-                <h3>Self-worked Object</h3>
-                <p>A self-created 3D object, combining organic shapes and realistic textures for practice.</p>
-            </div>
-
-            <div class="project-card">
-                <img src="image/3d/40.png" alt="Abstract 3D Design">
-                <h3>Abstract Design</h3>
-                <p>This abstract piece explores different materials and light effects within a 3D space.</p>
+                <img src="image/3d/40.png" alt="3D project showcasing an abstract design" />
+                <h3>Project 3: Abstract Design</h3>
+                <p class="project-description">This is a more advanced design, focusing on geometric shapes and texture rendering.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h1>Contact Me</h1>
-        <div class="contact-info">
-            <a href="mailto:spk@example.com">Email</a>
-            <a href="https://www.instagram.com/spk_13_/saved/" target="_blank">Instagram</a>
-            <a href="https://www.youtube.com/@SPk9.3" target="_blank">YouTube</a>
-            <a href="https://discord.gg/xTyUNDuCSP" target="_blank">Discord</a>
-            <a href="https://kick.com/spk-01" target="_blank">Kick</a>
+    <section id="cn">
+        <h4>Connect with me:</h4>
+        <div class="social-links">
+            <a href="https://www.instagram.com/spk_13_/saved/" class="instagram">Instagram</a>
+            <a href="https://www.youtube.com/@SPk9.3" class="youtube">YouTube</a>
+            <a href="https://kick.com/spk-01" class="kick">Kick</a>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 SPK. All rights reserved.</p>
-    </footer>
+    <section id="dis">
+        <h1>Join My Discord</h1>
+        <div class="discord-container">
+            <div class="discord-card">
+                <a href="https://discord.gg/xTyUNDuCSP" target="_blank">Join our Discord Server</a>
+        
+            </div>
+        </div>
+    </section>
 
     <script>
         function toggleMenu() {
-            document.querySelector('nav').classList.toggle('active');
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
         }
     </script>
 </body>
